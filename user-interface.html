@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Anamnese</title>
+</head>
+<body>
+  <style>
+    body {
+      background-color: white;
+      color: rgb(32, 32, 32);
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: ;
+      justify-content: center;
+      height: 100vh;
+      padding-top: 20px;
+    }
+
+    .body   {
+      padding-top: 20px;
+      padding-bottom: 200px;
+    }
+
+    .box {
+      background-color: white;
+      padding: 20px;
+      border: 0px solid rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      box-shadow: 2px 2px 2px 5px rgba(0, 0, 0, 0.1);
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    h2  {
+      text-align: left;
+      color: rgb(71, 71, 71);
+      font-size: 40px;
+      padding-left: 20px;
+    }
+    h3 {
+      text-align: left;
+      padding-left: 15px;
+      color: rgb(2, 2, 138);
+    }
+    h4, h5 {
+      text-align: center;
+    }
+
+    form {
+      display: ;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      border-radius: 5px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="submit"],
+    input[type="range"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: blue;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+
+    input[type="submit"]:hover {
+      background-color: lightblue;
+      cursor: pointer;
+    }
+
+    table {
+      margin: 20px 0;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    th {
+      background-color: lightblue;
+    }
+  </style>
+
+
+  <form>
+    <div class="body">
+    <div class="box">
+    <h2>Anamnese Bogen</h2>
+    <h3>Allergien</h3>
+    <label for="allergies"></label>
+    <input type="text" id="allergies" name="allergies" placeholder="Liegen ihnen Allergien vor?">
+
+    <h3>Medikamente</h3>
+    <label for="medication"></label>
+    <input type="text" id="medication" name="medication" placeholder="Welche Medikamente nehmen sie derzeit ein?">
+
+    <h3>Berufliche Tätigkeit</h3>
+    <label for="occupation"></label>
+    <input type="text" id="occupation" name="occupation" placeholder="Was machen sie beruflich?">
+
+    <h3>Wie lange schlafen Sie durchschnittlich pro Nacht?</h3>
+    <select name="sleep-duration">
+      <option value="">Bitte auswählen</option>
+      <option value="3">3 Stunden</option>
+      <option value="4">4 Stunden</option>
+      <option value="5">5 Stunden</option>
+      <option value="6">6 Stunden</option>
+      <option value="7">7 Stunden</option>
+      <option value="8">8 Stunden</option>
+      <option value="9">9 Stunden</option>
+      <option value="10">10 Stunden</option>
+      <option value="11">11 Stunden</option>
+      <option value="12">12 Stunden</option>
+      <option value="13">13 Stunden</option>
+      <option value="14">14 Stunden</option>
+    </select>
+    
+    <h3>Haben Sie Probleme beim Einschlafen oder Durchschlafen?</h3>
+    <input type="radio" name="sleep-problems" value="Probleme beim Einschlafen"> Probleme beim Einschlafen<br>
+    <input type="radio" name="sleep-problems" value="Probleme beim Durchschlafen"> Probleme beim Durchschlafen<br>
+    <input type="radio" name="sleep-problems" value="keine Ein- oder Durchschlafprobleme"> Keine Ein- oder Durchschlafprobleme<br>
+
+    <h3>Ist Ihr Schlaf erholsam?</h3>
+    <input type="radio" name="restful-sleep" value="ja"> Ja<br>
+    <input type="radio" name="restful-sleep" value="nein"> Nein<br>
+    
+    <h3>Sind Sie tagsüber müde?</h3>
+    <input type="radio" name="daytime-fatigue" value="ja"> Ja<br>
+    <input type="radio" name="daytime-fatigue" value="nein"> Nein<br>
+    <input type="radio" name="daytime-fatigue" value="auch schon morgens"> Auch schon morgens<br>
+    <input type="radio" name="daytime-fatigue" value="ich schlafe gelegentlich sogar ungewollt ein"> Ich schlafe gelegentlich sogar ungewollt ein<br>
+    
+    <h3>Schnarchen Sie nachts?</h3>
+    <input type="radio" name="snoring" value="ja"> Ja<br>
+    <input type="radio" name="snoring" value="nein"> Nein<br>
+    
+    <h3>Wurden bei Ihnen Atemaussetzer beobachtet?</h3>
+    <input type="radio" name="breathing-interruptions" value="ja"> Ja<br>
+    <input type="radio" name="breathing-interruptions" value="nein"> Nein<br>
+    
+    <h3>Waren Sie schon einmal in einem Schlaflabor?</h3>
+    <input type="radio" name="sleep-lab-visit" value="ja"> Ja<br>
+    <input type="radio" name="sleep-lab-visit" value="nein"> Nein<br>
+    <p>Wenn ja, geben Sie bitte an, wann und wo:</p>
+    <input type="text" name="sleep-lab-details">
+    
+    <h3>Bitte listen Sie eventuelle Vorerkrankungen oder weitere Erkrankungen auf:</h3>
+    <textarea name="medical-conditions" rows="4" cols="50"></textarea>
+
+    <h2>Fragebogen zur Tagschläfrigkeit</h2>
+
+    <title>Situationen und Wahrscheinlichkeit einzunicken</title>
+    <style>
+      input[type="range"] {
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <table>
+      <tr>
+        <th>Situation</th>
+        <th>Wahrscheinlichkeit einzunicken</th>
+      </tr>
+      <tr>
+        <td>Im Sitzen Lesend </td>
+        <td>
+          <input type="range" name="situation1" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Beim Fernsehen</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Wenn Sie passiv (als Zuhörer) in der Öffentlichkeit sitzen (z.B. im Theater ooder bei einem Vortrag)</td>
+        <td>
+          <input type="range" name="situation3" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Als Beifahrer im Auto während einer einstündigen Fahrt ohne Pause</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Wenn sie sich am Nachmittag hingelegt haben, um auszuruhen</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr> 
+      <tr>
+        <td>Wenn Sie sitzen und sich mit jemand unterhalten</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Wenn Sie nach dem Mittagessen (ohne Alkohol) ruhig dasitzen</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr>
+      <tr>
+        <td>Wenn sie als Fahrer eines Autos Verkehrsbedingt einige Minuten halten müssen</td>
+        <td>
+          <input type="range" name="situation2" min="0" max="100" step="1">
+        </td>
+      </tr>
+    </table>
+  
+    
+    <input type="submit" value="Absenden">
+
+  </div>
+</div>
+  </form>
+</body>
+</html>

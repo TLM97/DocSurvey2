@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+body {
+  background-color: white;
+  color: rgb(3, 3, 156);
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border: 0px solid rgba(128, 128, 128, 0.5);
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 5px rgba(128, 128, 128, 0.171);
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.row label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+h2, label {
+  text-align: center;
+}
+
+h5 {
+    text-align: center;
+    color: rgba(39, 39, 39, 0.788)
+}
+
+input[type="date"],
+select,
+input[type="submit"] {
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: blue;
+  color: white;
+  border: none;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+      
+      </style>
+
+  <title>Vorbesprechung Praxis Dr. Matthießen</title>
+
+  <script>
+    function updateTimeOptions() {
+      var selectedDate = new Date(document.getElementById("date").value);
+      var selectedDay = selectedDate.getDay();
+      var timeOptions = document.getElementById("time");
+
+      // Clear previous options
+      timeOptions.innerHTML = "";
+
+      // Define time options for each day
+      var timeOptionsByDay = [
+        [], // Sunday (not used)
+        [], // Monday
+        [], // Tuesday
+        [], // Wednesday
+        [], // Thursday
+        [], // Friday
+        []  // Saturday (not used)
+      ];
+
+      // Mondays and Thursdays: 9am to 12am and 3pm to 5pm
+      if (selectedDay === 1 || selectedDay === 4) {
+        addTimeOptions(timeOptionsByDay[selectedDay], 9, 12);
+        if (selectedDay === 1) {
+          addTimeOptions(timeOptionsByDay[selectedDay], 15, 17);
+        }
+      }
+
+      // Tuesdays and Fridays: 9am to 12am and 2pm to 4pm
+      if (selectedDay === 2 || selectedDay === 5) {
+        addTimeOptions(timeOptionsByDay[selectedDay], 9, 12);
+        if (selectedDay === 2) {
+          addTimeOptions(timeOptionsByDay[selectedDay], 14, 16);
+        }
+      }
+
+      // Wednesdays: 9am to 12am
+      if (selectedDay === 3) {
+        addTimeOptions(timeOptionsByDay[selectedDay], 9, 12);
+      }
+
+      // Populate the dropdown with the time options
+      var options = timeOptionsByDay[selectedDay];
+      options.forEach(function (option) {
+        var timeOption = document.createElement("option");
+        timeOption.value = option;
+        timeOption.textContent = option;
+        timeOptions.appendChild(timeOption);
+      });
+    }
+
+    // Function to add time options to the array
+    function addTimeOptions(dayOptions, startHour, endHour) {
+      for (var hour = startHour; hour <= endHour; hour++) {
+        // Skip hours between 12am and 1pm
+        if (hour !== 12) {
+          for (var minute = 0; minute < 60; minute += 10) {
+            var timeString = padZero(hour) + ":" + padZero(minute);
+            dayOptions.push(timeString);
+          }
+        }
+      }
+    }
+
+    // Function to pad single digits with a leading zero
+    function padZero(num) {
+      return num.toString().padStart(2, "0");
+    }
+  </script>
+</head>
+<body>
+  <h1></h1>
+
+  <form action="user-interface.html" method="GET">
+    <div class="container">
+      <h2>Bitte wählen Sie Ihren Termin aus.</h2>
+      <h5>Um ihre Daten Anonym zu halten, wählen sie bitte nur ihren Termin aus und geben keine Daten preis die zur Identifikation ihrer Person führen könnten.<br>Der Doktor kann ihnen ihren Fragebogen anschließend anhand ihres Termines zuordnen.<br>Vielen Dank!</h5>
+      <div class="row">
+        <label for="date">Bitte wählen Sie das Datum Ihres Termins:</label>
+        <input type="date" id="date" name="date" required onchange="updateTimeOptions()">
+      </div>
+      <div class="row">
+        <label for="time">Um wie viel Uhr haben Sie Ihren Termin?</label>
+        <select id="time" name="time" required>
+          <option value="">Wählen Sie eine Uhrzeit aus</option>
+        </select>
+      </div>
+      <div class="row">
+        <input type="submit" value="Weiter">
+      </div>
+    </div>
+  </form>
+  
+</body>
+</html>
+
+
